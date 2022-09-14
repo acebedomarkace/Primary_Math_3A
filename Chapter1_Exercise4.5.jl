@@ -146,7 +146,7 @@ md""" # Summary
 
 # ╔═╡ ced0a305-0ce5-4490-8b63-7074a530ba1d
 begin
-	results = [result_a1, result_b1, result_c1, result_d1]
+	results = [result_a1, result_b1, result_c1,result_d1]
 
 	top_score = length(results)
 	
@@ -158,14 +158,17 @@ begin
 	end
 
 	
+	
 	if top_score==counter
 		print("🏆 Perfect score! $(top_score) out of $(top_score)!")
-	else
-		print("😉 Out of $(top_score) Items, you got: ")
+	elseif 0 == counter
+		exit
+	elseif top_score > counter
+		print("Out of $(top_score) Items, you got: ")
 		print(counter)
 		print(" correctly")
 	end
-end
+end;
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
