@@ -26,12 +26,12 @@ md"""
 
 # ╔═╡ 95567e32-d284-4ecd-bdc8-6761cff0c075
 md"""
-#### 3. Fill in the blanks.
+#### 4. Fill in the blanks.
 """
 
 # ╔═╡ d7b50aee-51eb-4089-98aa-30d804485faa
 md""" **(a)**
-5409 + $(@bind a1 html"<input type=text >") = 5419
+4864 - $(@bind a1 html"<input type=text >") = 4863
 """
 
 # ╔═╡ 7dbf0d56-afaf-4741-947b-3bbe1fa6f700
@@ -40,7 +40,7 @@ ans_a1 = (a1);
 # ╔═╡ 3b9e4188-cfd3-4146-abec-d1ac8a9d6370
 begin
 	function checker_a1(ans)
-		if ("10")==ans || ("ten")==lowercase(ans)
+		if ("1")==ans || ("one")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -58,7 +58,7 @@ result_a1=checker_a1(ans_a1);
 
 # ╔═╡ 0f42c45a-adb8-40be-bb06-f3c4dab01977
 md""" **(b)**
-5409 + $(@bind b1 html"<input type=text >") = 6409
+4864 - $(@bind b1 html"<input type=text >") = 4764
 """
 
 # ╔═╡ 08437ae2-72f8-4f23-a231-7db1d0ccdc0f
@@ -67,7 +67,7 @@ ans_b1 = (b1);
 # ╔═╡ 8a6bfe77-972c-4edb-ab63-0b6ee4eaf3cf
 begin
 	function checker_b1(ans)
-		if ("1000")==ans || ("one thousand")==lowercase(ans)
+		if ("100")==ans || ("one hundred")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -85,7 +85,7 @@ result_b1=checker_b1(ans_b1);
 
 # ╔═╡ 174d2a5f-ead1-419f-8979-56f5427fb7a0
 md""" **(c)**
-5409 + $(@bind c1 html"<input type=text >") = 5410
+4864 - $(@bind c1 html"<input type=text >") = 3864
 """
 
 # ╔═╡ c82caec4-0d9b-44da-97ce-63176c1b1dd4
@@ -94,7 +94,7 @@ ans_c1 = (c1);
 # ╔═╡ 4fb2c016-7d61-4505-8594-e9640224c8b9
 begin
 	function checker_c1(ans)
-		if ("1")==ans || ("one")==lowercase(ans)
+		if ("1000")==ans || ("one thousand")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -112,7 +112,7 @@ result_c1=checker_c1(ans_c1);
 
 # ╔═╡ 454c81c4-8171-4712-acea-0b7ed46a65e5
 md""" **(d)**
-5409 + $(@bind d1 html"<input type=text >") = 5509
+4864 - $(@bind d1 html"<input type=text >") = 4854
 """
 
 # ╔═╡ a64653dd-40b1-4b43-bc0c-f18c9b4b9abc
@@ -121,7 +121,7 @@ ans_d1 = (d1);
 # ╔═╡ 057c46bd-655f-4198-95ad-e540f4d86b6e
 begin
 	function checker_d1(ans)
-		if ("100")==ans || ("one hundred")==lowercase(ans)
+		if ("10")==ans || ("ten")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -139,7 +139,7 @@ result_d1=checker_d1(ans_d1);
 
 # ╔═╡ cbfa4197-69d6-4d17-9909-7e0bec54fb13
 md""" **(e)**
-6998 + $(@bind e1 html"<input type=text >") = 7008
+4050 - $(@bind e1 html"<input type=text >") = 4049
 """
 
 # ╔═╡ 23d702b6-cdeb-4015-b37d-a069c5acb533
@@ -148,7 +148,7 @@ ans_e1 = (e1);
 # ╔═╡ c897b0cc-c204-473f-8ad0-81168fc5b021
 begin
 	function checker_e1(ans)
-		if ("10")==ans || ("ten")==lowercase(ans)
+		if ("1")==ans || ("one")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -166,7 +166,7 @@ result_e1=checker_e1(ans_e1);
 
 # ╔═╡ 6a77fd80-6fce-44b9-9201-a047304a07e0
 md""" **(f)**
-6998 + $(@bind f1 html"<input type=text >") = 7098
+4050 - $(@bind f1 html"<input type=text >") = 3050
 """
 
 # ╔═╡ 9e4fea2f-084f-492a-8200-fc2cbd76976b
@@ -175,7 +175,7 @@ ans_f1 = (f1);
 # ╔═╡ 10a37026-616c-4be6-ab2d-ad7f2ff1d86a
 begin
 	function checker_f1(ans)
-		if ("100")==ans || ("one hundred")==lowercase(ans)
+		if ("1000")==ans || ("one thousand")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -193,7 +193,7 @@ result_f1=checker_f1(ans_f1);
 
 # ╔═╡ ac93151b-ae7c-4ef3-8e88-77154c6ad624
 md""" **(g)**
-6998 + $(@bind g1 html"<input type=text >") = 7998
+4050 - $(@bind g1 html"<input type=text >") = 3950
 """
 
 # ╔═╡ c2b4e817-21e8-4bf6-90f1-1d9f7f24ba26
@@ -202,7 +202,7 @@ ans_g1 = (g1);
 # ╔═╡ ec1b5b96-bcf1-43cb-963e-ecb0ba24691b
 begin
 	function checker_g1(ans)
-		if ("1000")==ans || ("one thousand")==lowercase(ans)
+		if ("100")==ans || ("one hundred")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
@@ -220,7 +220,7 @@ result_g1=checker_g1(ans_g1);
 
 # ╔═╡ 055762f1-044f-49f1-a7f0-b877abac2c61
 md""" **(h)**
-6998 + $(@bind h1 html"<input type=text >") = 6999
+4050 - $(@bind h1 html"<input type=text >") = 4040
 """
 
 # ╔═╡ f0633820-d4f8-4648-8731-3a60a17ce331
@@ -229,7 +229,7 @@ ans_h1 = (h1);
 # ╔═╡ c953b112-c6a4-429a-9c89-7139520665ca
 begin
 	function checker_h1(ans)
-		if ("1")==ans || ("one")==lowercase(ans)
+		if ("10")==ans || ("ten")==lowercase(ans)
 			print("👍 That's correct!")
 			return 1
 		elseif isempty(ans)
