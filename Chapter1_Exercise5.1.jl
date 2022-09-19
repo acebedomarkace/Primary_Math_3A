@@ -39,6 +39,20 @@ The sum of 9 and 7 is $(@bind a1 TextField())
 
 """
 
+# ╔═╡ 5dd4f8cc-8e69-4cc0-8c7b-b37507349a65
+begin
+	function checker_a1(ans)
+		if ("16")==ans
+			return 1
+		else
+			return 0
+		end
+	end
+end;
+
+# ╔═╡ fe84bfff-9b6c-4886-88dd-c4d26ab59bac
+result_a1=checker_a1(a1);
+
 # ╔═╡ c50bd342-2177-4397-94c9-21685776ca91
 md""" **b)** 9 - 7 =
 
@@ -46,15 +60,49 @@ The difference between 9 and 7 is $(@bind b1 TextField())
 
 """
 
+# ╔═╡ fb6a57c7-0fea-4c0c-b7bb-8335b819562b
+begin
+	function checker_b1(ans)
+		if ("2")==ans
+			return 1
+		else
+			return 0
+		end
+	end
+end;
+
+# ╔═╡ 99e33a06-9b05-436d-aae4-17bd93d4da11
+result_b1=checker_b1(b1);
+
 # ╔═╡ 1d5a31d2-3374-4a47-9c17-d065ccf34ca8
 md""" # Summary
 """
 
 # ╔═╡ 1fa2729a-f3b3-4bb8-b822-4540210a2626
+begin
+	results = [result_a1,result_b1]
 
+	top_score = length(results)
+	
+	counter=0
+	for result in results
+		if result == 1
+			counter += 1
+		end
+	end
 
-# ╔═╡ 76802fb8-53b4-4280-a4c5-b987aa8cf197
-
+	
+	
+	if top_score==counter
+		print("🏆 Perfect score! $(top_score) out of $(top_score)!")
+	elseif 0 == counter
+		exit
+	elseif top_score > counter
+		print("Out of $(top_score) Items, you got: ")
+		print(counter)
+		print(" correctly")
+	end
+end;
 
 # ╔═╡ a594288b-101d-4d9f-8cae-d04912a3a505
 correct(text=md"👍 Great! You got the right answer! Let's move on to the next section.") = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]));
@@ -314,13 +362,16 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─95567e32-d284-4ecd-bdc8-6761cff0c075
 # ╟─6e971be6-c1ce-46fe-9b0a-4399316ef1a3
 # ╟─c79b606e-8b0f-4d29-adad-1bfed489066e
+# ╟─5dd4f8cc-8e69-4cc0-8c7b-b37507349a65
+# ╟─fe84bfff-9b6c-4886-88dd-c4d26ab59bac
 # ╟─c50bd342-2177-4397-94c9-21685776ca91
 # ╟─50e010ff-a3e4-42cc-a594-39ac3c8f34eb
+# ╟─fb6a57c7-0fea-4c0c-b7bb-8335b819562b
+# ╟─99e33a06-9b05-436d-aae4-17bd93d4da11
 # ╟─1d5a31d2-3374-4a47-9c17-d065ccf34ca8
-# ╠═1fa2729a-f3b3-4bb8-b822-4540210a2626
-# ╠═76802fb8-53b4-4280-a4c5-b987aa8cf197
-# ╠═a594288b-101d-4d9f-8cae-d04912a3a505
-# ╠═65ceab91-c840-454e-84d0-1e26c37cc60e
-# ╠═c80071e5-79bd-4f92-b121-e825fc5a998b
+# ╟─1fa2729a-f3b3-4bb8-b822-4540210a2626
+# ╟─a594288b-101d-4d9f-8cae-d04912a3a505
+# ╟─65ceab91-c840-454e-84d0-1e26c37cc60e
+# ╟─c80071e5-79bd-4f92-b121-e825fc5a998b
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
