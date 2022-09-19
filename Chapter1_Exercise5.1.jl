@@ -59,9 +59,6 @@ md""" # Summary
 # ╔═╡ a594288b-101d-4d9f-8cae-d04912a3a505
 correct(text=md"👍 Great! You got the right answer! Let's move on to the next section.") = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]));
 
-# ╔═╡ fec9afa7-327b-4038-832d-306ef24f27b9
-correct()
-
 # ╔═╡ 65ceab91-c840-454e-84d0-1e26c37cc60e
 keep_working(text=md"🤔 The answer is not quite right.") = Markdown.MD(Markdown.Admonition("danger", "Keep working on it!", [text]));
 
@@ -69,7 +66,7 @@ keep_working(text=md"🤔 The answer is not quite right.") = Markdown.MD(Markdow
 if a1 == "16"
 	correct()
 elseif a1 == ""
-	#hint(md"The answer is less than 20")
+	#hint(md"Type in your answer in the box.")
 else
 	keep_working()
 end
@@ -78,18 +75,13 @@ end
 if b1 == "2"
 	correct()
 elseif b1 == ""
+	#hint(md"Type in your answer in the box.")
 else
 	keep_working()
 end
 
-# ╔═╡ be28a796-7c13-4795-93c7-cd36a39ae648
-keep_working()
-
 # ╔═╡ c80071e5-79bd-4f92-b121-e825fc5a998b
 hint(text) = Markdown.MD(Markdown.Admonition("hint", "Hint", [text]));
-
-# ╔═╡ 65808d9d-4d79-4707-90eb-e61ba2b8f7c1
-hint(md"Provide the answer")
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -328,10 +320,7 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╠═1fa2729a-f3b3-4bb8-b822-4540210a2626
 # ╠═76802fb8-53b4-4280-a4c5-b987aa8cf197
 # ╠═a594288b-101d-4d9f-8cae-d04912a3a505
-# ╠═fec9afa7-327b-4038-832d-306ef24f27b9
 # ╠═65ceab91-c840-454e-84d0-1e26c37cc60e
-# ╠═be28a796-7c13-4795-93c7-cd36a39ae648
 # ╠═c80071e5-79bd-4f92-b121-e825fc5a998b
-# ╠═65808d9d-4d79-4707-90eb-e61ba2b8f7c1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
