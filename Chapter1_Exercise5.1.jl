@@ -33,74 +33,63 @@ md"""
 """
 
 # ╔═╡ 6e971be6-c1ce-46fe-9b0a-4399316ef1a3
-md"""
-|  |  |  |  |  |
---- | --- | ---| ---| ---|
-|4024|4034|$(@bind a1 html"<input type=text size=2>")|$(@bind a2 html"<input type=text size=2>")|4064|
-||3934||
-||3834||5636||
-||$(@bind a3 html"<input type=text size=2>")||$(@bind a4 html"<input type=text size=2>")||
-||$(@bind a5 html"<input type=text size=2>")|4634|5634|$(@bind a6 html"<input type=text size=2>")|
-||||$(@bind a7 html"<input type=text size=2>")||
-||||$(@bind a8 html"<input type=text size=2>")||
-|2631|$(@bind a9 html"<input type=text size=2>")|4631|$(@bind a10 html"<input type=text size=2>")|$(@bind a11 html"<input type=text size=2>")|
-|2630|||5630|
-|$(@bind a12 html"<input type=text size=2>")||||
-|$(@bind a13 html"<input type=text size=2>")|2728|$(@bind a14 html"<input type=text size=2>")|$(@bind a15 html"<input type=text size=2>")|3028
+md""" **a)** 9 + 7 =
+
+The sum of 9 and 7 is $(@bind a1 TextField())
+
 """
 
-# ╔═╡ 760ac96e-2a25-4766-b3f9-ca3eacd86206
-ans_a1 = (a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13,a14,a15);
+# ╔═╡ c50bd342-2177-4397-94c9-21685776ca91
+md""" **b)** 9 - 7 =
 
-# ╔═╡ f2d7328a-ec9b-4f7d-b388-2fefd02e9e61
-begin
-	function checker_a1(ans)
-		if ("4044","4054","3734","5635","3634","6634","5633","5632","3631","5631","6631","2629","2628","2828","2928")==ans
-			print("👍 That's correct!")
-			return 1
-		elseif ("","","","","","","","","","","","","","","")==ans
-			print("😀 Waiting for your answer")
-			return ""
-		else
-			print("🤔 Something is not right")
-			return 0
-		end
-	end
-end;
+The difference between 9 and 7 is $(@bind b1 TextField())
 
-# ╔═╡ 62006327-88e3-43e4-a4be-326b73a9d278
-result_a1=checker_a1(ans_a1);
+"""
 
 # ╔═╡ 1d5a31d2-3374-4a47-9c17-d065ccf34ca8
 md""" # Summary
 """
 
-# ╔═╡ ced0a305-0ce5-4490-8b63-7074a530ba1d
-begin
-	results = [result_a1]
+# ╔═╡ 1fa2729a-f3b3-4bb8-b822-4540210a2626
 
-	top_score = length(results)
-	
-	counter=0
-	for result in results
-		if result == 1
-			counter += 1
-		end
-	end
 
-	
-	
-	if top_score==counter
-		#print("🏆 Perfect score! $(top_score) out of $(top_score)!")
-		print("🏆 Perfect score! 15 out of 15!")
-	elseif 0 == counter
-		exit
-	elseif top_score > counter
-		print("Out of $(top_score) Items, you got: ")
-		print(counter)
-		print(" correctly")
-	end
-end;
+# ╔═╡ 76802fb8-53b4-4280-a4c5-b987aa8cf197
+
+
+# ╔═╡ a594288b-101d-4d9f-8cae-d04912a3a505
+correct(text=md"👍 Great! You got the right answer! Let's move on to the next section.") = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]));
+
+# ╔═╡ fec9afa7-327b-4038-832d-306ef24f27b9
+correct()
+
+# ╔═╡ 65ceab91-c840-454e-84d0-1e26c37cc60e
+keep_working(text=md"🤔 The answer is not quite right.") = Markdown.MD(Markdown.Admonition("danger", "Keep working on it!", [text]));
+
+# ╔═╡ c79b606e-8b0f-4d29-adad-1bfed489066e
+if a1 == "16"
+	correct()
+elseif a1 == ""
+	#hint(md"The answer is less than 20")
+else
+	keep_working()
+end
+
+# ╔═╡ 50e010ff-a3e4-42cc-a594-39ac3c8f34eb
+if b1 == "2"
+	correct()
+elseif b1 == ""
+else
+	keep_working()
+end
+
+# ╔═╡ be28a796-7c13-4795-93c7-cd36a39ae648
+keep_working()
+
+# ╔═╡ c80071e5-79bd-4f92-b121-e825fc5a998b
+hint(text) = Markdown.MD(Markdown.Admonition("hint", "Hint", [text]));
+
+# ╔═╡ 65808d9d-4d79-4707-90eb-e61ba2b8f7c1
+hint(md"Provide the answer")
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -330,12 +319,19 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─762db7b7-b0b3-48ba-9ae5-fad64ece489a
 # ╟─095c5690-2829-11ed-0d49-af3b33334ea7
 # ╟─c1ba96d8-4f88-4338-ab8c-e7b399f63115
-# ╠═95567e32-d284-4ecd-bdc8-6761cff0c075
+# ╟─95567e32-d284-4ecd-bdc8-6761cff0c075
 # ╟─6e971be6-c1ce-46fe-9b0a-4399316ef1a3
-# ╟─62006327-88e3-43e4-a4be-326b73a9d278
-# ╟─760ac96e-2a25-4766-b3f9-ca3eacd86206
-# ╟─f2d7328a-ec9b-4f7d-b388-2fefd02e9e61
+# ╟─c79b606e-8b0f-4d29-adad-1bfed489066e
+# ╟─c50bd342-2177-4397-94c9-21685776ca91
+# ╟─50e010ff-a3e4-42cc-a594-39ac3c8f34eb
 # ╟─1d5a31d2-3374-4a47-9c17-d065ccf34ca8
-# ╟─ced0a305-0ce5-4490-8b63-7074a530ba1d
+# ╠═1fa2729a-f3b3-4bb8-b822-4540210a2626
+# ╠═76802fb8-53b4-4280-a4c5-b987aa8cf197
+# ╠═a594288b-101d-4d9f-8cae-d04912a3a505
+# ╠═fec9afa7-327b-4038-832d-306ef24f27b9
+# ╠═65ceab91-c840-454e-84d0-1e26c37cc60e
+# ╠═be28a796-7c13-4795-93c7-cd36a39ae648
+# ╠═c80071e5-79bd-4f92-b121-e825fc5a998b
+# ╠═65808d9d-4d79-4707-90eb-e61ba2b8f7c1
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
