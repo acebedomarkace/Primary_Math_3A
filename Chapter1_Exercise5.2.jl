@@ -34,125 +34,143 @@ md"""
 
 # ╔═╡ 6e971be6-c1ce-46fe-9b0a-4399316ef1a3
 md""" **a)** 
-The sum of 6 and 8 is $(@bind a1 TextField())
+The sum of 6 and 8 is $(@bind a1 NumberField(0:100))
 """
-
-# ╔═╡ 5dd4f8cc-8e69-4cc0-8c7b-b37507349a65
-begin
-	function checker_a1(ans)
-		if ("14")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ fe84bfff-9b6c-4886-88dd-c4d26ab59bac
-result_a1=checker_a1(a1);
 
 # ╔═╡ c50bd342-2177-4397-94c9-21685776ca91
 md""" **b)** 
-The difference between 12 and 5 is $(@bind b1 TextField())
+The difference between 12 and 5 is $(@bind b1 NumberField(0:100))
 """
-
-# ╔═╡ fb6a57c7-0fea-4c0c-b7bb-8335b819562b
-begin
-	function checker_b1(ans)
-		if ("7")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ 99e33a06-9b05-436d-aae4-17bd93d4da11
-result_b1=checker_b1(b1);
 
 # ╔═╡ 597b6b36-df29-436d-aae8-c483784726eb
 md""" **c)** 
-The sum of 65 and 89 is $(@bind c1 TextField())
+The sum of 65 and 89 is $(@bind c1 NumberField(0:300))
 """
-
-# ╔═╡ 6687b5ac-44e5-4019-a091-3bc42cdf861d
-begin
-	function checker_c1(ans)
-		if ("154")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ 8cbd78b8-e226-4286-8f86-99eed73fdda7
-result_c1=checker_c1(c1);
 
 # ╔═╡ 959a6fb8-ea4b-4034-b36c-d5eaaf56a5ee
 md""" **d)** 
-Find the sum of 145 and 285. $(@bind d1 TextField())
+Find the sum of 145 and 285. $(@bind d1 NumberField(0:500))
 """
-
-# ╔═╡ 7dfa5f8a-1062-4db1-86c5-9528cd4149b8
-begin
-	function checker_d1(ans)
-		if ("430")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ 4d52c20a-05bb-4f24-a378-0da8434c73ca
-result_d1=checker_d1(d1);
 
 # ╔═╡ 1dbaf508-6df6-4ff1-b96c-5e7f1f5eff71
 md""" **e)** 
-The difference between 96 and 68 is $(@bind e1 TextField())
+The difference between 96 and 68 is $(@bind e1 NumberField(0:100))
 """
-
-# ╔═╡ c2456e5a-fa16-44a1-b11b-f81ff1f2413a
-begin
-	function checker_e1(ans)
-		if ("28")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ 7d42982f-cb81-47c5-8c58-9778a7042eab
-result_e1=checker_e1(e1);
 
 # ╔═╡ dd032d4d-6298-4fcb-9337-17e4fac517fb
 md""" **f)** 
-The difference between 387 and 512 is $(@bind f1 TextField())
+The difference between 387 and 512 is $(@bind f1 NumberField(0:300))
 """
-
-# ╔═╡ 827f4b3c-ce0a-4c47-ad82-ca0db16855f3
-begin
-	function checker_f1(ans)
-		if ("125")==ans
-			return 1
-		else
-			return 0
-		end
-	end
-end;
-
-# ╔═╡ 4dff1789-1345-4e9c-be8d-359443882e67
-result_f1=checker_f1(f1);
 
 # ╔═╡ 1d5a31d2-3374-4a47-9c17-d065ccf34ca8
 md""" # Summary
 """
 
+# ╔═╡ a594288b-101d-4d9f-8cae-d04912a3a505
+correct(text=md"👍 Great! You got the right answer! Let's move on to the next section.") = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]));
+
+# ╔═╡ 65ceab91-c840-454e-84d0-1e26c37cc60e
+keep_working(text=md"🤔 The answer is not quite right.") = Markdown.MD(Markdown.Admonition("danger", "Keep working on it!", [text]));
+
+# ╔═╡ c79b606e-8b0f-4d29-adad-1bfed489066e
+begin
+	function eval_a(ans)
+		if 6+8 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ eb8fdbab-c959-4fb9-86a7-0368874f8952
+eval_a(a1)[1]
+
+# ╔═╡ fb6a57c7-0fea-4c0c-b7bb-8335b819562b
+begin
+	function eval_b(ans)
+		if 12-5 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ 50e010ff-a3e4-42cc-a594-39ac3c8f34eb
+eval_b(b1)[1]
+
+# ╔═╡ 6687b5ac-44e5-4019-a091-3bc42cdf861d
+begin
+	function eval_c(ans)
+		if 65+89 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ de9b828c-d0c9-4d1c-87c6-49e2338fe75d
+eval_c(c1)[1]
+
+# ╔═╡ 7dfa5f8a-1062-4db1-86c5-9528cd4149b8
+begin
+	function eval_d(ans)
+		if 145+285 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ c0f75efc-ef47-4e8c-9ba0-3253ae823ec9
+eval_d(d1)[1]
+
+# ╔═╡ c2456e5a-fa16-44a1-b11b-f81ff1f2413a
+begin
+	function eval_e(ans)
+		if 96-68 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ e80087dd-2d9d-43df-a9a6-5b9df23e4c19
+eval_e(e1)[1]
+
+# ╔═╡ 827f4b3c-ce0a-4c47-ad82-ca0db16855f3
+begin
+	function eval_f(ans)
+		if 512-387 == ans
+			return correct(),1
+		elseif isa(ans, Number)
+			return keep_working(),0
+		else
+			return md"",0
+		end
+	end
+end;
+
+# ╔═╡ e8b882a0-6d7f-42e3-a9a6-d22be21cfc76
+eval_f(f1)[1]
+
 # ╔═╡ 1fa2729a-f3b3-4bb8-b822-4540210a2626
 begin
-	results = [result_a1,result_b1,result_c1,result_d1,result_e1,result_f1]
+	results = [eval_a(a1)[2],eval_b(b1)[2],eval_c(c1)[2],eval_d(d1)[2],eval_e(e1)[2],eval_f(f1)[2]]
 
 	top_score = length(results)
 	
@@ -164,60 +182,6 @@ begin
 	end
 end;
 
-# ╔═╡ a594288b-101d-4d9f-8cae-d04912a3a505
-correct(text=md"👍 Great! You got the right answer! Let's move on to the next section.") = Markdown.MD(Markdown.Admonition("correct", "Got it!", [text]));
-
-# ╔═╡ 65ceab91-c840-454e-84d0-1e26c37cc60e
-keep_working(text=md"🤔 The answer is not quite right.") = Markdown.MD(Markdown.Admonition("danger", "Keep working on it!", [text]));
-
-# ╔═╡ c79b606e-8b0f-4d29-adad-1bfed489066e
-if result_a1 == 1
-	correct()
-elseif a1 == ""
-else
-	keep_working()
-end
-
-# ╔═╡ 50e010ff-a3e4-42cc-a594-39ac3c8f34eb
-if result_b1 == 1
-	correct()
-elseif b1 == ""
-else
-	keep_working()
-end
-
-# ╔═╡ de9b828c-d0c9-4d1c-87c6-49e2338fe75d
-if result_c1 == 1
-	correct()
-elseif c1 == ""
-else
-	keep_working()
-end
-
-# ╔═╡ c0f75efc-ef47-4e8c-9ba0-3253ae823ec9
-if result_d1 == 1
-	correct()
-elseif d1 == ""
-else
-	keep_working()
-end
-
-# ╔═╡ e80087dd-2d9d-43df-a9a6-5b9df23e4c19
-if result_e1 == 1
-	correct()
-elseif e1 == ""
-else
-	keep_working()
-end
-
-# ╔═╡ e8b882a0-6d7f-42e3-a9a6-d22be21cfc76
-if result_f1 == 1
-	correct()
-elseif f1 == ""
-else
-	keep_working()
-end
-
 # ╔═╡ c80071e5-79bd-4f92-b121-e825fc5a998b
 hint(text) = Markdown.MD(Markdown.Admonition("hint", "Congratulations!", [text]));
 
@@ -225,12 +189,12 @@ hint(text) = Markdown.MD(Markdown.Admonition("hint", "Congratulations!", [text])
 if top_score==counter
 	hint("🏆 Perfect score! $(top_score) out of $(top_score)!")
 elseif 0 == counter
-	exit
+	print()
 elseif top_score > counter
 	print("Out of $(top_score) Items, you got: ")
 	print(counter)
 	print(" correctly")
-end;
+end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -462,29 +426,23 @@ uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
 # ╟─c1ba96d8-4f88-4338-ab8c-e7b399f63115
 # ╟─95567e32-d284-4ecd-bdc8-6761cff0c075
 # ╟─6e971be6-c1ce-46fe-9b0a-4399316ef1a3
+# ╟─eb8fdbab-c959-4fb9-86a7-0368874f8952
 # ╟─c79b606e-8b0f-4d29-adad-1bfed489066e
-# ╟─5dd4f8cc-8e69-4cc0-8c7b-b37507349a65
-# ╟─fe84bfff-9b6c-4886-88dd-c4d26ab59bac
 # ╟─c50bd342-2177-4397-94c9-21685776ca91
 # ╟─50e010ff-a3e4-42cc-a594-39ac3c8f34eb
 # ╟─fb6a57c7-0fea-4c0c-b7bb-8335b819562b
-# ╟─99e33a06-9b05-436d-aae4-17bd93d4da11
 # ╟─597b6b36-df29-436d-aae8-c483784726eb
 # ╟─de9b828c-d0c9-4d1c-87c6-49e2338fe75d
 # ╟─6687b5ac-44e5-4019-a091-3bc42cdf861d
-# ╟─8cbd78b8-e226-4286-8f86-99eed73fdda7
 # ╟─959a6fb8-ea4b-4034-b36c-d5eaaf56a5ee
 # ╟─c0f75efc-ef47-4e8c-9ba0-3253ae823ec9
 # ╟─7dfa5f8a-1062-4db1-86c5-9528cd4149b8
-# ╟─4d52c20a-05bb-4f24-a378-0da8434c73ca
 # ╟─1dbaf508-6df6-4ff1-b96c-5e7f1f5eff71
 # ╟─e80087dd-2d9d-43df-a9a6-5b9df23e4c19
 # ╟─c2456e5a-fa16-44a1-b11b-f81ff1f2413a
-# ╟─7d42982f-cb81-47c5-8c58-9778a7042eab
 # ╟─dd032d4d-6298-4fcb-9337-17e4fac517fb
 # ╟─e8b882a0-6d7f-42e3-a9a6-d22be21cfc76
 # ╟─827f4b3c-ce0a-4c47-ad82-ca0db16855f3
-# ╟─4dff1789-1345-4e9c-be8d-359443882e67
 # ╟─1d5a31d2-3374-4a47-9c17-d065ccf34ca8
 # ╟─3ab3491d-69d7-4c11-8d11-25b18ca93ee5
 # ╟─1fa2729a-f3b3-4bb8-b822-4540210a2626
